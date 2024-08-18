@@ -32,6 +32,7 @@ var plinkoBalls = [];
 var buckets = [];
 var pegs = [];
 var engine = Engine.create();
+var dropBallDelay = null;
 var render = Render.create({
     canvas: refPlinkoGame,
     engine: engine,
@@ -68,7 +69,7 @@ Composite.add(engine.world, pegs);
 refGambleButton.addEventListener("click", function() {
     const ballValue = parseFloat(refBallValueField.value);
     var renderProperties = ballSkinURL === "" ? {fillStyle: "white"} : {sprite: {texture: ballSkinURL, xScale: 0.2, yScale: 0.2}};
-    if (ballValue > 0 && ballValue * 100 % 1 == 0) {
+    if (ballValue > 0 && ballValue * 100 % 1 == 0 && dropBallDelay == null) {
         const xhr = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
         xhr.open("POST", "/drop_ball", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -91,6 +92,10 @@ refGambleButton.addEventListener("click", function() {
             ballvalue: ballValue
         });
         xhr.send(request.toString());
+        dropBallDelay = setTimeout(function() {
+            clearTimeout(dropBallDelay);
+            dropBallDelay = null;
+        }, 100);
     }
 });
 
