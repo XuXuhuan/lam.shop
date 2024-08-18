@@ -10,6 +10,7 @@
         <script src="{{ url_for('static', filename='gamble.js') }}" defer></script>
 		<link rel="stylesheet" href="{{ url_for ('static', filename='gamblePage.css') }}">
         <script defer>let ballSkinURL = "{{ ballskinurl }}";</script>
+        <style>body::after {background: url("{{ ballskinurl }}}"); display: none;}</style>
 		<title>lam.ble</title>
 	</head>
 	<body>
