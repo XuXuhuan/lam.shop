@@ -102,7 +102,7 @@ def login():
             WHERE username = ?;
         """, (input_user,)).fetchone()
         conn.close()
-        if len(queried_password) > 0:
+        if queried_password is not None:
             if bcrypt.checkpw(input_password, queried_password[0].encode("utf-8")):
                 session["username"] = input_user
                 session.permanent = True
