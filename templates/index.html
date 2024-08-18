@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='shopPage.css') }}">
+	<title>lam.shop</title>
+</head>
+<body>
+	<header>
+		<nav id="topNav">
+			<div class="lamCoinCont">
+				<div class="lamCoinIcon"></div>
+				<strong class="lamCoinText">{{ lamcoin }}</strong>
+			</div>
+			<h1 id="pageHeading">lam.shop</h1>
+			<form id="logoutForm" action="/logout" method="POST">
+				<input type="submit" value="Logout" id="logoutButton">
+			</form>
+		</nav>
+	</header>
+	<main>
+        <div id="gambleCont" class="uiCont">
+            <h2 class="shopHeading">Need LamCoin?</h2>
+            <a href="/gamble" id="gambleLink">Gamble Here!</a>
+        </div>
+		<div id="ownedMainCont" class="uiCont">
+			<h2 class="shopHeading">your.balls</h2>
+            {% if owned_items|length == 0 %}
+                <p class="noneText">No items owned yet.</p>
+            {% else %}
+                <div class="itemsGrid">
+                    {% for key, value in owned_items.items() %}
+                        <div class="shopItem">
+                            <div class="itemDisplay" style="background-image: url('/static/assets/{{ value['imgfilename'] }}')"></div>
+                            <strong class="itemName">{{ key }}</strong>
+                            <div class="lamCoinCont">
+                                <div class="lamCoinIcon"></div>
+                                    <strong class="lamCoinText">{{ value["price"] }}</strong>
+                            </div>
+                            <form action="/equip" method="POST">
+                                <input type="text" name="item" class="hiddenInput" value="{{ key }}">
+                                {% if key not in equipped_item %}
+                                <input type="submit" value="Equip" class="equipItemButton">
+                                {% else %}
+                                <input type="submit" value="Unequip" class="equipItemButton">
+                                {% endif %}
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+		</div>
+		<div id="shopMainCont" class="uiCont">
+			<h2 class="shopHeading">lam.items</h2>
+            {% if owned_items|length >= 10 %}
+                <p class="noneText">No items left to buy.</p>
+            {% else %}
+                <div class="itemsGrid">
+                    {% for key, value in unowned_items.items() %}
+                        <div class="shopItem">
+                            <div class="itemDisplay" style="background-image: url('/static/assets/{{ value['imgfilename'] }}')"></div>
+                            <strong class="itemName">{{ key }}</strong>
+                            <div class="lamCoinCont">
+                                <div class="lamCoinIcon"></div>
+                                <strong class="lamCoinText">{{ value["price"] }}</strong>
+                            </div>
+                            <form action="/" method="POST">
+                                <input type="text" name="item" class="hiddenInput" value="{{ key }}">
+                                <input type="submit" value="Purchase" class="buyItemButton">
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+		</div>
+	</main>
+</body>
+</html>

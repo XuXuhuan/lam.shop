@@ -1,0 +1,223 @@
+* {
+	font-family: 'Segoe UI';
+	color: #ffffff;
+}
+body {
+	margin: 0;
+	background-color: #1E1E1E;
+}
+.uiCont {
+	background-color: #323232;
+}
+#pageHeading {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	font-size: 25px;
+}
+#topNav {
+	display: flex;
+	position: fixed;
+	justify-content: space-between;
+	background-color: #0f0f0f;
+	align-items: center;
+	width: calc(100% - 60px);
+	font-size: 20px;
+	padding: 0 30px;
+	height: 3.5em;
+	z-index: 9999;
+}
+#backLink {
+	text-decoration: none;
+	transition: transform 0.3s ease-in;
+}
+#backLink:hover {
+	transform: scale(110%);
+}
+input[value="Logout"] {
+	cursor: pointer;
+	background-color: transparent;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 20px;
+	transition: background-color ease-in 0.2s;
+	border: 0;
+}
+input[value="Logout"]:hover {
+	background-color: #3b3b3b;
+}
+.lamCoinCont {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.lamCoinIcon {
+	position: relative;
+	height: 30px;
+	width: 30px;
+	background-image: url('assets/lamcoin.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+.lamCoinText {
+	font-size: 25px;
+}
+#topNav > .lamCoinCont {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+main {
+	position: absolute;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+    font-size: 20px;
+	height: fit-content;
+	top: 3.5em;
+}
+#ballValueCont {
+    position: fixed;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    padding: 15px 10px;
+    border-radius: 0 0 10px 0;
+    left: 0;
+    top: 30%;
+    z-index: 999;
+    transition: left 0.2s ease-in;
+}
+.hiddenCont {
+    left: -250px !important;
+}
+#ballValueCont input {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background-color: #252525;
+    border: 0;
+    outline: none;
+}
+#ballValueCont label {
+    margin-bottom: 8px;
+}
+.valueMultiplierButton {
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 6px;
+    font-size: 20px;
+    background-color: #686868;
+    border: 0;
+    height: 35px;
+    transition: transform 0.2s ease-out;
+}
+#backButton {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    font-size: 25px;
+    border: 0;
+    cursor: pointer;
+    padding: 7px 10px 7px 10px;
+    border-radius: 0 10px 10px 0;
+}
+.valueMultiplierButton:hover {
+    transform: scale(105%);
+}
+#ballValueCont input::-webkit-outer-spin-button {
+    display: none;
+}
+#ballValueCont input::-webkit-inner-spin-button {
+    position: relative;
+    right: -10px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    height: 30px;
+    width: 50px;
+}
+#dropBallCont {
+    position: relative;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 20px;
+}
+#dropBallButton {
+    position: relative;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: transform 0.25s ease-out;
+	background: rgb(255,0,0);
+	background: linear-gradient(149deg, rgba(255,0,0,1) 0%, rgba(238,101,101,1) 11%, rgba(215,207,18,1) 23%, rgba(33,212,61,1) 37%, rgba(0,155,255,1) 51%, rgba(43,6,209,1) 74%, rgba(238,0,229,1) 89%, rgba(255,0,0,1) 100%);
+}
+#dropBallButton:hover {
+    transform: scale(110%);
+}
+#gameCont {
+    position: relative;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 700px;
+}
+#plinkoWrapper {
+    position: relative;
+    height: 700px;
+    width: 850px;
+}
+#plinkoGame {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #2c2c2c !important;
+}
+.bucketMultiplierText {
+    position: absolute;
+    color: #ffffff;
+    width: 45px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    height: 15px;
+    margin: 7.5px 0;
+    bottom: 37.5px;
+    user-select: none;
+}
+audio {
+    display: none;
+}

@@ -1,0 +1,185 @@
+* {
+	font-family: 'Segoe UI';
+	color: #ffffff;
+}
+body {
+	margin: 0;
+    overflow-x: hidden;
+	background-color: #1E1E1E;
+}
+.uiCont {
+	border-radius: 10px;
+	background-color: #323232;
+}
+#pageHeading {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	font-size: 25px;
+}
+#topNav {
+	display: flex;
+	position: fixed;
+	justify-content: space-between;
+	background-color: #0f0f0f;
+	align-items: center;
+	width: calc(100% - 60px);
+	font-size: 20px;
+	padding: 0 30px;
+	height: 3.5em;
+	z-index: 9999;
+}
+main {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+    font-size: 20px;
+	height: fit-content;
+	top: 3.5em;
+}
+.lamCoinCont {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.lamCoinIcon {
+	position: relative;
+	height: 25px;
+	width: 25px;
+	background-image: url('assets/lamcoin.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+.lamCoinText {
+	font-size: 18px;
+}
+input[value="Logout"] {
+	cursor: pointer;
+	background-color: transparent;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 20px;
+	transition: background-color ease-in 0.2s;
+	border: 0;
+}
+input[value="Logout"]:hover {
+	background-color: #3b3b3b;
+}
+#shopMainCont, #ownedMainCont, #gambleCont {
+	position: relative;
+	margin-top: 50px;
+	height: fit-content;
+	width: 85%;
+	max-width: 850px;
+}
+#gambleCont {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 350px;
+}
+#gambleLink {
+	position: relative;
+	width: 200px;
+	padding: 20px 0;
+	text-decoration: none;
+	color: #ffffff;
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	text-align: center;
+	background: rgb(255,0,0);
+	background: linear-gradient(149deg, rgba(255,0,0,1) 0%, rgba(238,101,101,1) 11%, rgba(215,207,18,1) 23%, rgba(33,212,61,1) 37%, rgba(0,155,255,1) 51%, rgba(43,6,209,1) 74%, rgba(238,0,229,1) 89%, rgba(255,0,0,1) 100%);
+	transition: transform 0.3s ease-out;
+}
+#gambleLink:hover {
+	transform: scale(1000%);
+	z-index: 10000;
+}
+.noneText {
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+.shopHeading {
+	width: 100%;
+	text-align: center;
+}
+.itemsGrid {
+	display: grid;
+	position: relative;
+	gap: 20px 30px;
+	width: calc(100% - 60px);
+	grid-template-columns: repeat(3, 1fr);
+	padding: 20px 30px;
+	border: 0;
+}
+div.itemDisplay {
+	position: relative;
+	height: 180px;
+	background-repeat: no-repeat;
+	background-position: center ;
+	background-size: 100%;
+	margin-bottom: 10px;
+}
+div.shopItem {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+}
+.shopItem > .lamCoinCont {
+	margin-bottom: 15px;
+}
+strong.itemName {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	height: 60px;
+	word-break: break-word;
+}
+.hiddenInput {
+	display: none;
+}
+input.buyItemButton, input.equipItemButton {
+	display: flexbox;
+	position: relative;
+	cursor: pointer;
+	word-break: break-word;
+	border: 0;
+	width: 100%;
+	height: fit-content;
+	border-radius: 10px;
+	background-color: #00c728;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 12px 7px;
+	transition: transform 0.2s ease-out;
+	font-weight: 500;
+}
+input.buyItemButton:hover, input.equipItemButton:hover {
+	transform: scale(110%);
+}
+.equipItemButton {
+	background-color: #ffffff !important;
+	color: #000000 !important;
+}

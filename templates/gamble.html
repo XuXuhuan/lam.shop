@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="{{ url_for('static', filename='matter.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='matter.min.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='plinko.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='gamble.js') }}" defer></script>
+		<link rel="stylesheet" href="{{ url_for ('static', filename='gamblePage.css') }}">
+        <script defer>let ballSkinURL = "{{ ballskinurl }}";</script>
+		<title>lam.ble</title>
+	</head>
+	<body>
+		<header>
+			<nav id="topNav">
+				<a href="{{ url_for('index') }}" id="backLink">&lt; Back</a>
+				<div class="lamCoinCont">
+					<div class="lamCoinIcon"></div>
+					<p id="lamCoinText">{{ lamcoin }}</p>
+				</div>
+				<form id="logoutForm" action="/logout" method="POST">
+					<input type="submit" value="Logout" id="logoutButton">
+				</form>				
+			</nav>
+		</header>
+		<main>
+            <audio src="/static/assets/boing1.mp3"></audio>
+            <audio src="/static/assets/boing2.mp3"></audio>
+            <audio src="/static/assets/boing3.mp3"></audio>
+            <audio src="/static/assets/boing4.mp3"></audio>
+			<div id="ballValueCont" class="uiCont">
+                <button id="backButton" class="uiCont">&lt;</button>
+                <label for="ballValueField" id="ballValueLabel">Amount:</label>
+                <input type="number" name="ballValueField" id="ballValueField" value="1">
+                <button class="valueMultiplierButton" id="doubleValueButton">2x</button>
+                <button class="valueMultiplierButton" id="halfValueButton">0.5x</button>
+            </div>
+            <div id="dropBallCont">
+                <button id="dropBallButton" type="submit">Gamble!</button>
+            </div>
+            <div id="gameCont">
+                <div id="plinkoWrapper">
+                    <canvas id="plinkoGame"></canvas>
+                </div>
+            </div>
+		</main>
+	</body>
+</html>
