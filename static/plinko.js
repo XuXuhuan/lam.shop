@@ -2,6 +2,7 @@ const refGambleButton = document.querySelector("#dropBallButton");
 const refPlinkoGame = document.querySelector("#plinkoGame");
 const refPlinkoWrapper = document.querySelector("#plinkoWrapper");
 const refLamCoinText = document.querySelector("#lamCoinText");
+const refBGM = document.querySelector("#bgmAudio");
 const bucketInfo = [[10, "#ff0000"],
                 [8, "#ff3200"],
                 [6, "#ff5000"],
@@ -37,6 +38,11 @@ var render = Render.create({
     options: {wireframes: false,
             height: 700,
             width: 850,}
+});
+refBGM.volume = 0.1;
+var playOnInteract = document.addEventListener("click", function() {
+    refBGM.play();
+    document.removeEventListener(playOnInteract);
 });
 
 for (let i = 0; i < bucketInfo.length; i++) {
@@ -107,7 +113,7 @@ Events.on(engine, "collisionStart", function(event) {
             }
             else if (body.label === "peg") {
                 let randomNum = Math.floor(Math.random() * 4);
-                document.querySelectorAll("audio")[randomNum].play();
+                document.querySelectorAll(".boingsound")[randomNum].play();
             }
             if (collidedBall != null && collidedBucket != null) {
                 World.remove(engine.world, collidedBall);
